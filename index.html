@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Bootstrap demo</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+  </head>
+  <body style="padding: 16px;">
+    <ul class="nav nav-tabs">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="#">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#"></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Resources</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link disabled" aria-disabled="true">Profile</a>
+        </li>
+      </ul>
+      <div class="container">
+        <h1 class="my-3">Welcome to API Development Tool</h1>
+      </div>
+
+    <div class="container">
+        <div class="input-group mb-3">
+            <button class="btn btn-outline-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">GET</button>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="#">POST</a></li>
+              <li><a class="dropdown-item" href="#">PUT</a></li>
+              <li><a class="dropdown-item" href="#">DELETE</a></li>
+            </ul>
+            <input id="url" type="url" class="form-control" aria-label="Text input with dropdown button" placeholder="Enter API endpoint here">
+        </div>
+      <div class="my-4">
+        <h5>Content-Type of Transaction</h5>
+        <hr class="hr hr-blurry" />
+        <div class="form-check">
+            
+            <label class="form-check-label" for="flexRadioDefault1" >JSON</label>
+                <input value="JSON" class="form-check-input" type="radio" name="content-type" id="json_radio" checked>
+          </div>
+          <div class="form-check">
+            <input value="PARAMETERS" class="form-check-input" type="radio" name="content-type" id="params_radio">
+            <label class="form-check-label" for="flexRadioDefault2">Custom Parameters</label>
+          </div>
+      </div>
+      <div id="content-type-parameter">
+        <div class="container text-center">
+            <div class="row">
+              <div class="col">
+                <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="Key">
+              </div>
+              <div class="col">
+                <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="Value">
+              </div>
+              <div class="col align-items-start">
+                <button type="button" class="btn btn-primary" id="add-parameter-button">+</button>
+              </div>
+            </div>
+          </div>
+      </div>
+      <div id="params">
+
+      </div>
+      <div id="content-type-json-post" class="my-4">
+        <div class="form-outline scrollbar-primary">
+            <label class="form-label" for="json-text-area">Request JSON</label>
+            <textarea class="form-control " id="json-text-area" rows="4" placeholder="Paste your Request JSON Data Here"></textarea>
+          </div>
+      </div>
+
+      <button id="submit" class="btn btn-primary my-4 ">Submit</button>
+
+      <div class="content-type-json-get my-4">
+        <div class="form-outline scrollbar-primary">
+            <label class="form-label" for="json-text-area">Response JSON</label>
+            <textarea class="form-control " id="json-text-area-get" rows="4"></textarea>
+          </div>
+      </div>
+    </div>
+
+    <script src="app.js"></script>  
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+    
+  </body>
+</html>
