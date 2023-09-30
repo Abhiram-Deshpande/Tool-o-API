@@ -71,9 +71,22 @@ json_radio.addEventListener('click',()=>{
       console.log(json)
 
       let fetch_promise = fetch(url)
-      fetch_promise.then((response)=>{
-        console.log(response)
-        document.getElementById("json-text-area-get").setAttribute("placeholder","We have got your data")
+      .then((response)=>{
+        if(response.status==404){
+          document.getElementById("json-text-area-get").setAttribute("placeholder","Invalid URL Provided")  
+          return 
+        }
+        else{
+          //console.log(response.json())
+          return response.text()
+        }
+        
+      })
+      .then((text)=>{
+        console.log("Presenting you the text")
+        console.log(text)
+        document.getElementById("json-text-area-get").value = text
+        document.getElementById("json-text-area-get").rows = 20
       })
       
     }
