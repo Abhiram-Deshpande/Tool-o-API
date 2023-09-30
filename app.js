@@ -69,6 +69,13 @@ json_radio.addEventListener('click',()=>{
     if(content_type=="JSON"){
       let json = document.getElementById("json-text-area").value
       console.log(json)
+
+      let fetch_promise = fetch(url)
+      fetch_promise.then((response)=>{
+        console.log(response)
+        document.getElementById("json-text-area-get").setAttribute("placeholder","We have got your data")
+      })
+      
     }
 
  })
