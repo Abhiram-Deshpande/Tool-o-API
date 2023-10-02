@@ -18,6 +18,23 @@ function deleteParameter(){
 
 }
 
+async function getResponse(URL){
+  try{
+    let response  = await fetch(URL)
+    if(response.status==200){
+      return response.text()
+    }
+    else{
+      throw new Error("Something went wrong");
+    }
+  }
+  catch(error){
+      alert(error)
+  }
+  
+
+}
+
 params_radio.addEventListener('click',()=>{
     json_box.style.display='none'
     parameter_box.style.display='block'
@@ -70,25 +87,13 @@ json_radio.addEventListener('click',()=>{
       let json = document.getElementById("json-text-area").value
       console.log(json)
 
-      let fetch_promise = fetch(url)
-      .then((response)=>{
-        if(response.status==404){
-          document.getElementById("json-text-area-get").setAttribute("placeholder","Invalid URL Provided")  
-          return 
-        }
-        else{
-          //console.log(response.json())
-          return response.text()
-        }
-        
-      })
-      .then((text)=>{
-        console.log("Presenting you the text")
-        console.log(text)
-        document.getElementById("json-text-area-get").value = text
-        document.getElementById("json-text-area-get").rows = 20
+      let getResponsePromise =  getResponse(url)
+      getResponsePromise.then((json_repsonse)=>{
+        console.log(json_repsonse)
+        document.getElementById("json-text-area-get").value = json_repsonse
       })
       
     }
 
  })
+
